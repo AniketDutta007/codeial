@@ -11,6 +11,9 @@ const expressLayouts = require('express-ejs-layouts');
 app.use(express.static('./assets'));
 // use to setup the layouts
 app.use(expressLayouts);
+// extract styles and scripts from subpages into the layout
+app.set('layout extractStyles',true);
+app.set('layout extractScripts',true);
 // use express router
 app.use('/', require('./routes/index'));
 
