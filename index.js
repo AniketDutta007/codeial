@@ -1,8 +1,15 @@
+// import express library
 const express = require('express');
+// initiate express framework
 const app = express();
+// assign port
 const port = 8000;
+// import layout
 const expressLayouts = require('express-ejs-layouts');
 
+// use to setup the assets
+app.use(express.static('./assets'));
+// use to setup the layouts
 app.use(expressLayouts);
 // use express router
 app.use('/', require('./routes/index'));
