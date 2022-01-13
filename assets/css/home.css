@@ -1,0 +1,21 @@
+#feed{
+    width: 40rem;
+    margin: auto;
+}
+#create-post{
+    margin: auto;
+    padding: 1rem;
+}
+#create-post input[type='submit']{
+    display: block;
+}
+#post-feed{
+    height: 450px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    text-align:justify;
+}
+.card{
+    margin: 1rem 1rem;
+    border-radius: 1rem;
+}

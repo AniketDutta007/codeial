@@ -1,1 +1,26 @@
+<link rel="stylesheet" type="text/css" href="/css/home.css">
+
 <h1>This codeial <%=title%>.</h1>
+
+<section id="feed">
+  <section id="create-post">
+      <h3>Create Post</h3>
+      <form action="/posts/create-post" method="POST">
+          <textarea name="content" id="post-content" cols="75" rows="3" placeholder="Write something here..."></textarea>
+          <input type="submit" value="Post">
+      </form>
+  </section>
+  <section id="post-feed">
+      <%for(post of posts){%>
+      <div class="card">
+          <div class="card-header"><a href="#"><%=post.user.name%></a></div>
+          <div class="card-body">
+            <blockquote class="blockquote mb-0">
+              <p><%=post.content%></p>
+              <footer class="blockquote-footer">Posted by <cite title="Source Title"><%=post.user.name%></cite></footer>
+            </blockquote>
+          </div>
+      </div>
+      <%}%>
+  </section>
+</section>
