@@ -2,8 +2,6 @@
 const Post = require('../models/post');
 // create post
 module.exports.createPost = function (req, res) {
-    console.log(req.body);
-    console.log(req.user);
     // return res.redirect('/');
     Post.create({
         content: req.body.content,
