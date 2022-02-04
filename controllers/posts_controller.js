@@ -1,5 +1,6 @@
 // importing user database
 const Post = require('../models/post');
+const Comment = require('../models/comment');
 // create post
 module.exports.createPost = function (req, res) {
     // return res.redirect('/');
@@ -12,5 +13,16 @@ module.exports.createPost = function (req, res) {
             return;
         }
         return res.redirect('back');
+    });
+};
+// delete post
+module.exports.destroyPost = function (req,res) {
+    Post.findById(req.params.id, function(err,post){
+        if(post.user == req.user.id){
+            post.remove();
+            Comment.deleteMany({post: req.params.id}, function (err) {
+                res.redirect('back');
+            });
+        }
     });
 };

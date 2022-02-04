@@ -13,7 +13,12 @@
   <section id="post-feed">
       <%for(post of posts.reverse()){%>
       <div class="card">
-          <div class="card-header"><a href="#"><%=post.user.name%></a></div>
+          <div class="card-header">
+            <a href="#"><%=post.user.name%></a>
+            <%if(post.user.id==locals.user.id){%>
+            <small><a href="/posts/destroy-post/<%=post.id%>">X</a></small>
+            <%}%>
+          </div>
           <div class="card-body">
             <blockquote class="blockquote mb-0">
               <p><%=post.content%></p>
@@ -43,6 +48,9 @@
                   <%=comment.content%>
                   <br>
                   <small><%=comment.user.name%></small>
+                  <%if(comment.user.id==locals.user.id){%>
+                  <small><a href="/comments/destroy-comment/<%=comment.id%>">X</a></small>
+                  <%}%>
                 </li>
                 <%}%>
               </ul>

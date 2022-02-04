@@ -12,9 +12,22 @@ module.exports.createComment = function (req,res){
                 if(comment){
                     post.comments.push(comment);
                     post.save();
-                    res.redirect('/');
+                    res.redirect('back');
                 }
             });
+        }
+    });
+};
+
+module.exports.destroyComment = function (req,res){
+    Comment.findById(req.params.id, function (err,comment){
+        if(comment.user == req.user.id){
+            Post.findById(comment.post, function (err,post){
+                post.comments = post.comments.filter(postComment => postComment!=comment.id);
+                post.save();
+            });
+            comment.remove();
+            res.redirect('back');
         }
     });
 };
