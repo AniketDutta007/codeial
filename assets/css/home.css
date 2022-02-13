@@ -1,3 +1,9 @@
+main{
+    width: 100%;
+    display: inline-flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
 #feed{
     width: 40rem;
     margin: auto;
@@ -18,4 +24,10 @@
 .card{
     margin: 1rem 1rem;
     border-radius: 1rem;
+}
+#user-friends{
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: start;
 }

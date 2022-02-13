@@ -31,7 +31,7 @@
                         </a>
                         <ul class="dropdown-menu dropdown-menu-end position-absolute" aria-labelledby="navbarDropdown">
                             <%if(locals.user){%>
-                            <li><a class="dropdown-item text-end" href="/users/profile">Profile</a></li>
+                            <li><a class="dropdown-item text-end" href="/users/profile/<%=user.id%>">Profile</a></li>
                             <li><a class="dropdown-item text-end" href="#">Activity</a></li>
                             <li><hr class="dropdown-divider"></li>
                             <li><a class="dropdown-item text-end" href="/users/sign-out">Sign Out</a></li>

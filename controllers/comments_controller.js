@@ -22,9 +22,8 @@ module.exports.createComment = function (req,res){
 module.exports.destroyComment = function (req,res){
     Comment.findById(req.params.id, function (err,comment){
         if(comment.user == req.user.id){
-            Post.findById(comment.post, function (err,post){
-                post.comments = post.comments.filter(postComment => postComment!=comment.id);
-                post.save();
+            Post.findByIdAndUpdate(comment.post,{$pull:{comments:comment._id}},function (err,post){
+                return;
             });
             comment.remove();
             res.redirect('back');

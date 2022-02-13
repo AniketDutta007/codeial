@@ -2,8 +2,17 @@
 const User = require('../models/user');
 // render the profile page
 module.exports.profile = function(req, res){
-    return res.render('profile',{
-        title: "Codeial : Profile"
+    User.findById(req.params.id,function (err,users){
+        return res.render('profile',{
+            title: "Codeial : Profile",
+            profile_user: users
+        });
+    });
+};
+module.exports.profileUpdate = function(req, res){
+    console.log(req.body);
+    User.updateOne({_id: req.user._id},req.body,function (err,user){
+        res.redirect('back');
     });
 };
 // render the sign up page
