@@ -17,6 +17,7 @@
         <%}%>
         <i id="2" class="copy bi bi-clipboard"></i>
     </div>
+    <%if(locals.user.id===profile_user.id){%>
     <div class="user-detail">
         <label for="user-password">Password : </label>
         <input type="password" name="password" id="user-password" class="input__field" value="<%=profile_user.password%>" readonly>
@@ -26,6 +27,7 @@
         <%}%>
         <i id="3" class="copy bi bi-clipboard"></i>
     </div>
+    <%}%>
     <%if(locals.user.id===profile_user.id){%>
     <button type="submit" id="save" disabled>Save</button>
     <%}%>

@@ -8,11 +8,13 @@ const userPassword = document.getElementById('user-password');
 
 let saveFlag = false;
 
-togglePassword.addEventListener('click',(event) => {
-    const type = userPassword.getAttribute('type')==='password'?'text':'password';
-    userPassword.setAttribute('type',type);
-    togglePassword.classList.toggle('bi-eye');
-});
+if(togglePassword!=undefined){
+    togglePassword.addEventListener('click',(event) => {
+        const type = userPassword.getAttribute('type')==='password'?'text':'password';
+        userPassword.setAttribute('type',type);
+        togglePassword.classList.toggle('bi-eye');
+    });
+}
 
 document.addEventListener('click',(event) => {
     if(!(event.target.classList.contains('user-details')||event.target.classList.contains('input__field')||event.target.classList.contains('edit'))){
@@ -22,9 +24,11 @@ document.addEventListener('click',(event) => {
         userEmail.style.pointerEvents = 'none';
         userEmail.style.userSelect = 'none';
         userEmail.readOnly = true;
-        userPassword.style.pointerEvents = 'none';
-        userPassword.style.userSelect = 'none';
-        userPassword.readOnly = true;
+        if(userPassword!=undefined){
+            userPassword.style.pointerEvents = 'none';
+            userPassword.style.userSelect = 'none';
+            userPassword.readOnly = true;
+        }
     }
 });
 
@@ -76,9 +80,11 @@ Array.from(copy).forEach(element => {
     });
 });
 
-document.getElementById('save').addEventListener('click',(event) => {
-    saveFlag = false;
-});
+if(document.getElementById('save')!=undefined){
+    document.getElementById('save').addEventListener('click',(event) => {
+        saveFlag = false;
+    });
+}
 
 window.addEventListener('beforeunload',(event) => {
     if(saveFlag){

@@ -17,10 +17,19 @@
   </section>
   <section id="user-friends">
     <h4>Friends</h4>
-    <%for(friend of friends){%>
-      <%if(user.id!==friend.id){%>
-      <a href="/users/profile/<%=friend.id%>"><%=friend.name%></a>
+    <div id="friends-list">
+      <%for(friend of friends){%>
+        <%if(user.id!==friend.id){%>
+        <div class="friend">
+          <div class="profile__pic"></div>
+          <div class="profile__user__name">
+            <a href="/users/profile/<%=friend.id%>">
+              <%=friend.name%>
+            </a>
+          </div>
+        </div>
+        <%}%>
       <%}%>
-    <%}%>
+    </div>
   </section>
 </main>

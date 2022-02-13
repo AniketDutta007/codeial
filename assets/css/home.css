@@ -3,6 +3,7 @@ main{
     display: inline-flex;
     flex-direction: row;
     justify-content: space-evenly;
+    box-sizing: border-box;
 }
 #feed{
     width: 40rem;
@@ -26,8 +27,27 @@ main{
     border-radius: 1rem;
 }
 #user-friends{
-    display: inline-flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: start;
+    width: 20%;
+    box-sizing: border-box;
+}
+#friends-list{
+    width: 100%;
+}
+.friend{
+    margin: 1rem .25rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.friend .profile__pic{
+    width: 10%;
+    max-width: 25px;
+    margin: .5rem 2rem .5rem 1rem;
+}
+.friend .profile__pic::after{
+    content: "";
+    display: block;
+    padding: 100%;
+    background-color: black;
+    border-radius: 50%;
 }
